@@ -10,14 +10,14 @@ mantenible — no en replicar el diseño pixel a pixel.
 ## Stack
 
 - **Next.js 16** (App Router) · **React 19** · **TypeScript** (strict)
-- **Zustand** (estado de cliente) · **Mapbox GL** (mapa) · **SCSS Modules** (estilos)
-- **pnpm** · **ESLint + Prettier**
+- **Zustand** (estado de cliente) · **Mapbox GL** (mapa) · **Firebase Auth** (login con Google)
+- **SCSS Modules** (estilos) · **pnpm** · **ESLint + Prettier**
 
 ## Puesta en marcha
 
 ```bash
 pnpm install
-cp .env.example .env.local   # y rellena tu token de Mapbox
+cp .env.example .env.local   # y rellena tu token de Mapbox + credenciales de Firebase
 pnpm dev                     # http://localhost:3000
 ```
 
@@ -26,6 +26,13 @@ pnpm dev                     # http://localhost:3000
 | Variable | Descripción |
 |----------|-------------|
 | `NEXT_PUBLIC_MAPBOX_TOKEN` | Token público de Mapbox GL. Obtén uno gratis en https://account.mapbox.com/access-tokens/ |
+| `NEXT_PUBLIC_FIREBASE_API_KEY` | Config de tu proyecto de Firebase (Configuración del proyecto → General → Tus apps). |
+| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Idem. |
+| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Idem. |
+| `NEXT_PUBLIC_FIREBASE_APP_ID` | Idem. |
+
+Sin estas 4 variables de Firebase la app funciona igual: el botón de inicio de sesión queda
+deshabilitado en vez de romper el resto de la aplicación (ver ADR-006).
 
 ## Arquitectura
 
@@ -36,10 +43,10 @@ pnpm dev                     # http://localhost:3000
 app/        # rutas Next (delgadas)
 src/
   app/      # providers, estilos globales, config
-  widgets/  # MapView, Sidebar, Navbar, DashboardLayout
-  features/ # create-incident, filter-incidents, (auth)
+  widgets/  # MapView, Sidebar, Navbar, DashboardLayout, DashboardSummary
+  features/ # create-incident, filter-incidents, auth
   entities/ # incident (modelo, store, ui)
-  shared/   # ui kit, lib, config, hooks
+  shared/   # ui kit, lib, config, i18n
 ```
 
 ## Decisiones de arquitectura (ADRs)
@@ -77,12 +84,22 @@ una única fuente de verdad del dominio; el dashboard y el mapa consumen el mism
 storage, timers). Derivaciones en render/`useMemo`, eventos en handlers, estado global en Zustand.
 **Por qué:** menos bugs de sincronización, render más predecible, código más simple (KISS).
 
+### ADR-006 · Autenticación decorativa con Firebase Auth (Google)
+Punto extra del enunciado. **Decisión:** Firebase Auth con proveedor de Google, sin backend
+propio ni pantalla de registro; el login es **decorativo** — muestra nombre/foto en el Navbar y
+permite cerrar sesión, pero no protege ninguna ruta ni acción (crear incidencias, ver mapa o
+dashboard funcionan igual con o sin sesión). **Por qué:** evita construir un flujo de
+registro/login falso solo para simular un usuario; Firebase Console habilita el proveedor de
+Google sin configurar manualmente credenciales OAuth. **Consecuencia:** requiere un proyecto de
+Firebase propio (ver variables de entorno arriba); si no está configurado, el botón de inicio de
+sesión se deshabilita en vez de romper la app, igual que el token de Mapbox ausente.
+
 ## Estado del proyecto
 
-Fases 0-6 completas (ver `.claude/CHECKLIST.md`): setup, layout base, modelo de dominio, vista
-de mapa con creación de incidencias, dashboard con KPIs/gráficos/tabla filtrable, y una pasada
-de pulido (estados vacíos en los gráficos, accesibilidad del modal y formularios, manejo de
-error al cargar el mapa). Pendiente como extras opcionales: responsive avanzado y autenticación.
+Todas las fases del roadmap están completas: setup y fundaciones, layout base, modelo de
+dominio, vista de mapa con creación de incidencias, dashboard con KPIs/gráficos/tabla filtrable,
+una pasada de pulido (estados vacíos, accesibilidad, manejo de errores) y autenticación
+decorativa con Google. Pendiente como extra opcional: responsive avanzado para móvil/tablet.
 
 ## Scripts
 
