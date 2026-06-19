@@ -1,0 +1,46 @@
+@use "@/app/styles/tokens" as *;
+
+.nav {
+  width: $sidebar-width;
+  background: $color-surface;
+  border-right: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 0;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+  width: 48px;
+  padding: $space-2 0;
+  border-radius: $radius-sm;
+  color: $color-text-secondary;
+
+  &:hover {
+    background: $color-bg;
+    color: $color-text-primary;
+  }
+}
+
+.active {
+  background: $color-bg;
+  color: $color-text-primary;
+
+  .icon {
+    color: $color-accent;
+  }
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.label {
+  font-size: $font-size-xs;
+}

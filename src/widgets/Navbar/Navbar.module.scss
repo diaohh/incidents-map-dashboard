@@ -1,0 +1,58 @@
+@use "@/app/styles/tokens" as *;
+
+.header {
+  height: $navbar-height;
+  background: $color-navy-900;
+  color: $color-text-on-dark;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $space-5;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $color-accent;
+}
+
+.project {
+  font-size: $font-size-sm;
+  color: $color-text-on-dark;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $color-accent;
+  color: $color-accent-contrast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: 700;
+}
+
+.userName {
+  font-size: $font-size-sm;
+}
