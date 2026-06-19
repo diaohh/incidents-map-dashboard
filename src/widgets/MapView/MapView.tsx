@@ -10,6 +10,7 @@ import {
   useCreateIncidentFlow,
 } from "@/features/create-incident";
 import { applyFilters, FilterBar, useFilterStore } from "@/features/filter-incidents";
+import { useDismissablePanel } from "@/shared/lib";
 import { useMapbox } from "./useMapbox";
 import { useIncidentMarkers } from "./useIncidentMarkers";
 import { useMapClickToPick } from "./useMapClickToPick";
@@ -60,6 +61,12 @@ function MapCanvas({ token, incidents, selectedIncidentId, onSelect }: MapCanvas
 
   const selectedIncident = incidents.find((incident) => incident.id === selectedIncidentId);
   const { t } = useTranslation();
+  const {
+    isOpen: isFilterOpen,
+    setIsOpen: setIsFilterOpen,
+    containerRef: filterContainerRef,
+    triggerRef: filterTriggerRef,
+  } = useDismissablePanel();
 
   return (
     <div className={styles.root}>
@@ -70,8 +77,32 @@ function MapCanvas({ token, incidents, selectedIncidentId, onSelect }: MapCanvas
           <p>{t("mapView.loadError.body")}</p>
         </div>
       )}
-      <div className={styles.filterBar}>
-        <FilterBar />
+      <div className={styles.filterBar} ref={filterContainerRef}>
+        <button
+          ref={filterTriggerRef}
+          type="button"
+          className={styles.filterTrigger}
+          aria-haspopup="true"
+          aria-expanded={isFilterOpen}
+          aria-label={t("filters.toggle")}
+          onClick={() => setIsFilterOpen((prev) => !prev)}
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 6h16M7 12h10M10 18h4"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+        <div
+          className={[styles.filterPanel, isFilterOpen && styles.filterPanelOpen]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <FilterBar />
+        </div>
       </div>
       {selectedIncident && (
         <div className={styles.cardOverlay}>
