@@ -4,10 +4,22 @@
   background: $color-surface;
   border-radius: $radius-md;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  overflow-x: auto;
+}
+
+.toolbar {
+  display: flex;
+  padding: $space-4;
+  border-bottom: 1px solid $color-border;
+}
+
+.toolbar > * {
+  max-width: 280px;
+  width: 100%;
 }
 
 .table {
+  display: block;
+  overflow-x: auto;
   width: 100%;
   border-collapse: collapse;
   font-size: $font-size-sm;
@@ -26,10 +38,36 @@
   white-space: nowrap;
 }
 
+.priorityCell {
+  text-align: center;
+}
+
 .empty {
   padding: $space-6;
   text-align: center;
   color: $color-text-secondary;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-4;
+  padding: $space-4;
+  border-top: 1px solid $color-border;
+}
+
+.pageControls {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.pageIndicator {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
 }
 
 .srOnly {
