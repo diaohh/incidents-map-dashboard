@@ -1,16 +1,21 @@
 @use "@/app/styles/tokens" as *;
 
 .nav {
+  position: fixed;
+  top: calc($navbar-height + $space-4);
+  bottom: $space-4;
+  left: 0;
+  z-index: 10;
   width: $sidebar-width-collapsed;
   background: $color-surface;
   border-radius: 0 $radius-xl $radius-xl 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin: $space-4 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $space-2;
   padding: $space-4 $space-2;
+  overflow-y: auto;
   transition: width 0.2s ease;
 
   &.expanded {
