@@ -1,7 +1,7 @@
 import { DonutChart } from "@mantine/charts";
 import { useTranslation } from "@/shared/i18n";
 import { selectByStatus, STATUS_COLOR, STATUS_LABEL_KEY, type Incident, type Status } from "@/entities/incident";
-import styles from "./ChartSection.module.scss";
+import styles from "../ChartSection.module.scss";
 
 const STATUSES: Status[] = ["open", "on_pause", "closed"];
 

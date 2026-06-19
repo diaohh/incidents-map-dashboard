@@ -1,7 +1,7 @@
 import { AreaChart } from "@mantine/charts";
 import { useTranslation } from "@/shared/i18n";
 import { selectTrend, type Incident } from "@/entities/incident";
-import styles from "./ChartSection.module.scss";
+import styles from "../ChartSection.module.scss";
 
 interface TrendChartProps {
   incidents: Incident[];

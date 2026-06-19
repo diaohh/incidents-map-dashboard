@@ -1,7 +1,7 @@
 import { BarChart } from "@mantine/charts";
 import { useTranslation } from "@/shared/i18n";
 import { selectByPriority, PRIORITY_LABEL_KEY, type Incident, type Priority } from "@/entities/incident";
-import styles from "./ChartSection.module.scss";
+import styles from "../ChartSection.module.scss";
 
 const PRIORITIES: Priority[] = ["high", "medium", "low"];
 

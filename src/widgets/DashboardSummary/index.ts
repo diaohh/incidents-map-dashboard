@@ -1,1 +1,1 @@
-export { DashboardSummary } from "./DashboardSummary";
+export { DashboardSummary } from "./DashboardSummary/DashboardSummary";

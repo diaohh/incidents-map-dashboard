@@ -3,12 +3,12 @@
 import { useTranslation } from "@/shared/i18n";
 import { useIncidents } from "@/entities/incident";
 import { applyFilters, FilterBar, useFilterStore } from "@/features/filter-incidents";
-import { KpiGrid } from "./KpiGrid";
-import { StatusChart } from "./StatusChart";
-import { PriorityChart } from "./PriorityChart";
-import { CategoryChart } from "./CategoryChart";
-import { TrendChart } from "./TrendChart";
-import { IncidentsTable } from "./IncidentsTable";
+import { KpiGrid } from "../KpiGrid/KpiGrid";
+import { StatusChart } from "../StatusChart/StatusChart";
+import { PriorityChart } from "../PriorityChart/PriorityChart";
+import { CategoryChart } from "../CategoryChart/CategoryChart";
+import { TrendChart } from "../TrendChart/TrendChart";
+import { IncidentsTable } from "../IncidentsTable/IncidentsTable";
 import styles from "./DashboardSummary.module.scss";
 
 export function DashboardSummary() {
