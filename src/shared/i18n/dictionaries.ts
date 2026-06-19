@@ -11,7 +11,9 @@ export type TranslationKey =
   | "dashboardPage.body"
   | "languageSwitcher.label"
   | "languageSwitcher.es"
-  | "languageSwitcher.en";
+  | "languageSwitcher.en"
+  | "sidebar.expand"
+  | "sidebar.collapse";
 
 export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
   es: {
@@ -27,6 +29,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "languageSwitcher.label": "Seleccionar idioma",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
+    "sidebar.expand": "Expandir navegación",
+    "sidebar.collapse": "Contraer navegación",
   },
   en: {
     "nav.mapa": "Map",
@@ -40,5 +44,7 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "languageSwitcher.label": "Select language",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
+    "sidebar.expand": "Expand navigation",
+    "sidebar.collapse": "Collapse navigation",
   },
 };
