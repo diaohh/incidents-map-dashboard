@@ -3,6 +3,7 @@
 import { useTranslation } from "@/shared/i18n";
 import { useIncidents } from "@/entities/incident";
 import { applyFilters, FilterBar, useFilterStore } from "@/features/filter-incidents";
+import { ScrollToTopButton } from "@/shared/ui";
 import { KpiGrid } from "../KpiGrid/KpiGrid";
 import { StatusChart } from "../StatusChart/StatusChart";
 import { PriorityChart } from "../PriorityChart/PriorityChart";
@@ -43,6 +44,8 @@ export function DashboardSummary() {
       </div>
 
       <IncidentsTable incidents={filteredIncidents} />
+
+      <ScrollToTopButton label={t("dashboard.scrollToTop")} />
     </div>
   );
 }

@@ -1,0 +1,22 @@
+@use "@/app/styles/tokens" as *;
+@use "@/app/styles/mixins" as *;
+
+.button {
+  position: fixed;
+  bottom: $space-6;
+  right: $space-6;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-accent;
+  color: $color-accent-contrast;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  @include respond-to(md) {
+    display: none;
+  }
+}

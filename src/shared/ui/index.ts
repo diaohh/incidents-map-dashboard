@@ -5,3 +5,4 @@ export { Field } from "./Field/Field";
 export { Select } from "./Select/Select";
 export { Badge } from "./Badge/Badge";
 export { LanguageSwitcher } from "./LanguageSwitcher/LanguageSwitcher";
+export { ScrollToTopButton } from "./ScrollToTopButton/ScrollToTopButton";
