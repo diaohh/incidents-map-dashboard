@@ -16,6 +16,9 @@ $color-success: #2f9e63;
 $color-warning: #e0a526;
 $color-danger: #d64545;
 
+$color-sidebar-active: #fec513;
+$color-icon-default: #000000;
+
 // Espaciado (escala de 4px)
 $space-1: 4px;
 $space-2: 8px;
@@ -49,4 +52,5 @@ $bp-xl: 1280px;
 
 // Layout
 $navbar-height: 72px;
-$sidebar-width: 64px;
+$sidebar-width-collapsed: 80px;
+$sidebar-width-expanded: 220px;
