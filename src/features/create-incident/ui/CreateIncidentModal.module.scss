@@ -1,0 +1,18 @@
+@use "@/app/styles/tokens" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.location {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+}

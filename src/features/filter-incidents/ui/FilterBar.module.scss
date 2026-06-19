@@ -1,0 +1,16 @@
+@use "@/app/styles/tokens" as *;
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: $space-4;
+}
+
+.field {
+  min-width: 160px;
+}
+
+.clear {
+  align-self: flex-end;
+}

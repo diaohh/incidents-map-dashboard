@@ -5,8 +5,6 @@ export type TranslationKey =
   | "nav.dashboard"
   | "navbar.brand"
   | "navbar.login"
-  | "dashboardPage.title"
-  | "dashboardPage.body"
   | "languageSwitcher.label"
   | "languageSwitcher.es"
   | "languageSwitcher.en"
@@ -22,7 +20,46 @@ export type TranslationKey =
   | "priority.low"
   | "status.open"
   | "status.on_pause"
-  | "status.closed";
+  | "status.closed"
+  | "createIncident.trigger"
+  | "createIncident.locationPrompt"
+  | "createIncident.title"
+  | "createIncident.fieldTitle"
+  | "createIncident.fieldDescription"
+  | "createIncident.fieldDueDate"
+  | "createIncident.fieldCategory"
+  | "createIncident.fieldPriority"
+  | "createIncident.categoryPlaceholder"
+  | "createIncident.priorityPlaceholder"
+  | "createIncident.location"
+  | "createIncident.submit"
+  | "createIncident.cancel"
+  | "createIncident.requiredError"
+  | "filters.status"
+  | "filters.priority"
+  | "filters.category"
+  | "filters.all"
+  | "filters.clear"
+  | "dashboard.title"
+  | "dashboard.kpi.total"
+  | "dashboard.kpi.open"
+  | "dashboard.kpi.onPause"
+  | "dashboard.kpi.closed"
+  | "dashboard.kpi.approvalRate"
+  | "dashboard.kpi.overdue"
+  | "dashboard.chart.byStatus"
+  | "dashboard.chart.byPriority"
+  | "dashboard.chart.byCategory"
+  | "dashboard.chart.trend"
+  | "dashboard.chart.created"
+  | "dashboard.chart.closed"
+  | "dashboard.table.title"
+  | "dashboard.table.column.title"
+  | "dashboard.table.column.category"
+  | "dashboard.table.column.priority"
+  | "dashboard.table.column.status"
+  | "dashboard.table.column.dueDate"
+  | "dashboard.table.empty";
 
 export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
   es: {
@@ -30,9 +67,6 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "nav.dashboard": "Dashboard",
     "navbar.brand": "Incidents",
     "navbar.login": "Iniciar sesión",
-    "dashboardPage.title": "Dashboard",
-    "dashboardPage.body":
-      "El resumen de incidencias (KPIs, distribución, tendencias) llega en la Fase 5.",
     "languageSwitcher.label": "Seleccionar idioma",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
@@ -50,14 +84,51 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "status.open": "Abierta",
     "status.on_pause": "En pausa",
     "status.closed": "Cerrada",
+    "createIncident.trigger": "Crear incidencia",
+    "createIncident.locationPrompt": "Haz click en el mapa para ubicar la incidencia",
+    "createIncident.title": "Crear incidencia",
+    "createIncident.fieldTitle": "Título",
+    "createIncident.fieldDescription": "Descripción",
+    "createIncident.fieldDueDate": "Fecha de vencimiento",
+    "createIncident.fieldCategory": "Categoría",
+    "createIncident.fieldPriority": "Prioridad",
+    "createIncident.categoryPlaceholder": "Selecciona una categoría",
+    "createIncident.priorityPlaceholder": "Selecciona una prioridad",
+    "createIncident.location": "Ubicación seleccionada",
+    "createIncident.submit": "Crear",
+    "createIncident.cancel": "Cancelar",
+    "createIncident.requiredError": "Este campo es obligatorio",
+    "filters.status": "Estado",
+    "filters.priority": "Prioridad",
+    "filters.category": "Categoría",
+    "filters.all": "Todas",
+    "filters.clear": "Limpiar filtros",
+    "dashboard.title": "Dashboard de incidencias",
+    "dashboard.kpi.total": "Total",
+    "dashboard.kpi.open": "Abiertas",
+    "dashboard.kpi.onPause": "En pausa",
+    "dashboard.kpi.closed": "Cerradas",
+    "dashboard.kpi.approvalRate": "% aprobación",
+    "dashboard.kpi.overdue": "Vencidas",
+    "dashboard.chart.byStatus": "Distribución por estado",
+    "dashboard.chart.byPriority": "Distribución por prioridad",
+    "dashboard.chart.byCategory": "Distribución por categoría",
+    "dashboard.chart.trend": "Tendencia mensual",
+    "dashboard.chart.created": "Creadas",
+    "dashboard.chart.closed": "Cerradas",
+    "dashboard.table.title": "Incidencias",
+    "dashboard.table.column.title": "Título",
+    "dashboard.table.column.category": "Categoría",
+    "dashboard.table.column.priority": "Prioridad",
+    "dashboard.table.column.status": "Estado",
+    "dashboard.table.column.dueDate": "Vence",
+    "dashboard.table.empty": "No hay incidencias con estos filtros.",
   },
   en: {
     "nav.mapa": "Map",
     "nav.dashboard": "Dashboard",
     "navbar.brand": "Incidents",
     "navbar.login": "Sign in",
-    "dashboardPage.title": "Dashboard",
-    "dashboardPage.body": "The incidents summary (KPIs, breakdowns, trends) is coming in Phase 5.",
     "languageSwitcher.label": "Select language",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
@@ -74,5 +145,44 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "status.open": "Open",
     "status.on_pause": "On pause",
     "status.closed": "Closed",
+    "createIncident.trigger": "Create incident",
+    "createIncident.locationPrompt": "Click on the map to place the incident",
+    "createIncident.title": "Create incident",
+    "createIncident.fieldTitle": "Title",
+    "createIncident.fieldDescription": "Description",
+    "createIncident.fieldDueDate": "Due date",
+    "createIncident.fieldCategory": "Category",
+    "createIncident.fieldPriority": "Priority",
+    "createIncident.categoryPlaceholder": "Select a category",
+    "createIncident.priorityPlaceholder": "Select a priority",
+    "createIncident.location": "Selected location",
+    "createIncident.submit": "Create",
+    "createIncident.cancel": "Cancel",
+    "createIncident.requiredError": "This field is required",
+    "filters.status": "Status",
+    "filters.priority": "Priority",
+    "filters.category": "Category",
+    "filters.all": "All",
+    "filters.clear": "Clear filters",
+    "dashboard.title": "Incidents dashboard",
+    "dashboard.kpi.total": "Total",
+    "dashboard.kpi.open": "Open",
+    "dashboard.kpi.onPause": "On pause",
+    "dashboard.kpi.closed": "Closed",
+    "dashboard.kpi.approvalRate": "% approved",
+    "dashboard.kpi.overdue": "Overdue",
+    "dashboard.chart.byStatus": "Distribution by status",
+    "dashboard.chart.byPriority": "Distribution by priority",
+    "dashboard.chart.byCategory": "Distribution by category",
+    "dashboard.chart.trend": "Monthly trend",
+    "dashboard.chart.created": "Created",
+    "dashboard.chart.closed": "Closed",
+    "dashboard.table.title": "Incidents",
+    "dashboard.table.column.title": "Title",
+    "dashboard.table.column.category": "Category",
+    "dashboard.table.column.priority": "Priority",
+    "dashboard.table.column.status": "Status",
+    "dashboard.table.column.dueDate": "Due",
+    "dashboard.table.empty": "No incidents match these filters.",
   },
 };
