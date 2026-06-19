@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/shared/i18n";
 import { isFirebaseConfigured } from "@/shared/config";
+import { useDismissablePanel } from "@/shared/lib";
 import { useAuthListener } from "../model/useAuthListener";
 import { useAuthStore } from "../model/store";
 import { signInWithGoogle, signOutUser } from "../model/actions";
@@ -12,36 +12,10 @@ export function AuthMenu() {
   useAuthListener();
   const { t } = useTranslation();
   const user = useAuthStore((state) => state.user);
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handlePointerDown = (event: MouseEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-        triggerRef.current?.focus();
-      }
-    };
-
-    document.addEventListener("mousedown", handlePointerDown);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", handlePointerDown);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen]);
+  const { isOpen, setIsOpen, close, containerRef, triggerRef } = useDismissablePanel();
 
   const handleAction = async () => {
-    setIsOpen(false);
-    triggerRef.current?.focus();
+    close();
     if (user) {
       await signOutUser();
     } else {
