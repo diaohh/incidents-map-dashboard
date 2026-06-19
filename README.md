@@ -30,8 +30,7 @@ pnpm dev                     # http://localhost:3000
 ## Arquitectura
 
 **Feature-Sliced Design** adaptado al App Router de Next: `app/` solo enruta; la lógica vive en
-`src/` por capas (`shared → entities → features → widgets → app`). Detalle en
-[`CLAUDE.md`](./CLAUDE.md).
+`src/` por capas (`shared → entities → features → widgets → app`).
 
 ```
 app/        # rutas Next (delgadas)
@@ -77,10 +76,6 @@ una única fuente de verdad del dominio; el dashboard y el mapa consumen el mism
 **Decisión:** usar `useEffect` **solo** para sincronizar con sistemas externos (Mapbox, `window`,
 storage, timers). Derivaciones en render/`useMemo`, eventos en handlers, estado global en Zustand.
 **Por qué:** menos bugs de sincronización, render más predecible, código más simple (KISS).
-
-## Roadmap
-
-Plan por fases con checklist en [`docs/CHECKLIST.md`](./docs/CHECKLIST.md).
 
 ## Scripts
 
