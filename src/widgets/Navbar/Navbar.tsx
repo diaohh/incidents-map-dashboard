@@ -3,6 +3,7 @@
 import { useTranslation } from "@/shared/i18n";
 import { LanguageSwitcher } from "@/shared/ui";
 import { AuthMenu } from "@/features/auth";
+import { MobileMenu } from "./MobileMenu";
 import styles from "./Navbar.module.scss";
 
 export function Navbar() {
@@ -14,7 +15,10 @@ export function Navbar() {
         <span className={styles.logo}>{t("navbar.brand")}</span>
         <div className={styles.actions}>
           <LanguageSwitcher />
-          <AuthMenu />
+          <div className={styles.desktopOnly}>
+            <AuthMenu />
+          </div>
+          <MobileMenu />
         </div>
       </nav>
     </header>

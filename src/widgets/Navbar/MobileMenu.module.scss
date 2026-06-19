@@ -1,0 +1,131 @@
+@use "@/app/styles/tokens" as *;
+@use "@/app/styles/mixins" as *;
+
+.container {
+  position: relative;
+
+  @include respond-to(md) {
+    display: none;
+  }
+}
+
+.trigger {
+  color: $color-text-on-dark;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + #{$space-2});
+  right: 0;
+  z-index: 20;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  padding: $space-4;
+}
+
+.close {
+  align-self: flex-end;
+  color: $color-text-primary;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3;
+  border-radius: $radius-sm;
+  color: $color-text-primary;
+
+  &:hover {
+    background: $color-bg;
+  }
+}
+
+.active {
+  background: rgba($color-sidebar-active, 0.16);
+  box-shadow: inset 3px 0 0 0 $color-sidebar-active;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: 0;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-accent;
+  color: $color-accent-contrast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.avatarImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileName {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.signOut {
+  font-size: $font-size-sm;
+  color: $color-danger;
+  font-weight: 600;
+}
+
+.signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: $radius-sm;
+  background: $color-accent;
+  color: $color-accent-contrast;
+  font-size: $font-size-sm;
+  font-weight: 600;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

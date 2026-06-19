@@ -5,6 +5,8 @@ export type TranslationKey =
   | "nav.dashboard"
   | "navbar.brand"
   | "navbar.login"
+  | "navbar.menuLabel"
+  | "navbar.closeMenu"
   | "languageSwitcher.label"
   | "languageSwitcher.es"
   | "languageSwitcher.en"
@@ -46,6 +48,8 @@ export type TranslationKey =
   | "filters.category"
   | "filters.all"
   | "filters.clear"
+  | "filters.toggle"
+  | "dashboard.scrollToTop"
   | "dashboard.title"
   | "dashboard.kpi.total"
   | "dashboard.kpi.open"
@@ -66,7 +70,13 @@ export type TranslationKey =
   | "dashboard.table.column.priority"
   | "dashboard.table.column.status"
   | "dashboard.table.column.dueDate"
-  | "dashboard.table.empty";
+  | "dashboard.table.empty"
+  | "dashboard.table.search"
+  | "dashboard.table.pageSize"
+  | "dashboard.table.prev"
+  | "dashboard.table.next"
+  | "dashboard.table.page"
+  | "dashboard.table.of";
 
 export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
   es: {
@@ -74,6 +84,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "nav.dashboard": "Dashboard",
     "navbar.brand": "Incidents",
     "navbar.login": "Iniciar sesión",
+    "navbar.menuLabel": "Abrir menú de navegación",
+    "navbar.closeMenu": "Cerrar menú",
     "languageSwitcher.label": "Seleccionar idioma",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
@@ -116,6 +128,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "filters.category": "Categoría",
     "filters.all": "Todas",
     "filters.clear": "Limpiar filtros",
+    "filters.toggle": "Mostrar filtros",
+    "dashboard.scrollToTop": "Volver arriba",
     "dashboard.title": "Dashboard de incidencias",
     "dashboard.kpi.total": "Total",
     "dashboard.kpi.open": "Abiertas",
@@ -137,12 +151,20 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "dashboard.table.column.status": "Estado",
     "dashboard.table.column.dueDate": "Vence",
     "dashboard.table.empty": "No hay incidencias con estos filtros.",
+    "dashboard.table.search": "Buscar por título",
+    "dashboard.table.pageSize": "Registros por página",
+    "dashboard.table.prev": "Anterior",
+    "dashboard.table.next": "Siguiente",
+    "dashboard.table.page": "Página",
+    "dashboard.table.of": "de",
   },
   en: {
     "nav.mapa": "Map",
     "nav.dashboard": "Dashboard",
     "navbar.brand": "Incidents",
     "navbar.login": "Sign in",
+    "navbar.menuLabel": "Open navigation menu",
+    "navbar.closeMenu": "Close menu",
     "languageSwitcher.label": "Select language",
     "languageSwitcher.es": "Español",
     "languageSwitcher.en": "English",
@@ -184,6 +206,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "filters.category": "Category",
     "filters.all": "All",
     "filters.clear": "Clear filters",
+    "filters.toggle": "Show filters",
+    "dashboard.scrollToTop": "Scroll to top",
     "dashboard.title": "Incidents dashboard",
     "dashboard.kpi.total": "Total",
     "dashboard.kpi.open": "Open",
@@ -205,5 +229,11 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "dashboard.table.column.status": "Status",
     "dashboard.table.column.dueDate": "Due",
     "dashboard.table.empty": "No incidents match these filters.",
+    "dashboard.table.search": "Search by title",
+    "dashboard.table.pageSize": "Rows per page",
+    "dashboard.table.prev": "Previous",
+    "dashboard.table.next": "Next",
+    "dashboard.table.page": "Page",
+    "dashboard.table.of": "of",
   },
 };

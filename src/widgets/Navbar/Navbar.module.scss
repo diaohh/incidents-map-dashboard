@@ -1,4 +1,5 @@
 @use "@/app/styles/tokens" as *;
+@use "@/app/styles/mixins" as *;
 
 .header {
   height: $navbar-height;
@@ -27,5 +28,13 @@
   display: flex;
   align-items: center;
   gap: $space-4;
+}
+
+.desktopOnly {
+  display: none;
+
+  @include respond-to(md) {
+    display: flex;
+  }
 }
 
