@@ -1,30 +1,17 @@
 @use "@/app/styles/tokens" as *;
 
-.group {
-  display: flex;
-  align-items: center;
-  gap: $space-1;
-}
-
-.option {
+.toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: $radius-sm;
-  opacity: 0.55;
   transition: opacity 0.15s ease;
 
   &:hover {
     opacity: 0.85;
   }
-}
-
-.active {
-  opacity: 1;
-  outline: 2px solid $color-accent;
-  outline-offset: 1px;
 }
 
 .flag {

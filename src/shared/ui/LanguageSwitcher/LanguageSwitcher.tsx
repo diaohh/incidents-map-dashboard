@@ -30,33 +30,29 @@ function UsaFlag() {
   );
 }
 
-const OPTIONS: { locale: Locale; flag: typeof SpainFlag }[] = [
-  { locale: "es", flag: SpainFlag },
-  { locale: "en", flag: UsaFlag },
-];
+const FLAGS: Record<Locale, typeof SpainFlag> = {
+  es: SpainFlag,
+  en: UsaFlag,
+};
+
+const OTHER_LOCALE: Record<Locale, Locale> = {
+  es: "en",
+  en: "es",
+};
 
 export function LanguageSwitcher() {
   const { locale, setLocale, t } = useTranslation();
+  const nextLocale = OTHER_LOCALE[locale];
+  const Flag = FLAGS[locale];
 
   return (
-    <div className={styles.group} role="group" aria-label={t("languageSwitcher.label")}>
-      {OPTIONS.map(({ locale: optionLocale, flag: Flag }) => {
-        const isActive = locale === optionLocale;
-        const classes = [styles.option, isActive && styles.active].filter(Boolean).join(" ");
-
-        return (
-          <button
-            key={optionLocale}
-            type="button"
-            className={classes}
-            aria-pressed={isActive}
-            aria-label={t(`languageSwitcher.${optionLocale}`)}
-            onClick={() => setLocale(optionLocale)}
-          >
-            <Flag />
-          </button>
-        );
-      })}
-    </div>
+    <button
+      type="button"
+      className={styles.toggle}
+      aria-label={`${t("languageSwitcher.label")}: ${t(`languageSwitcher.${nextLocale}`)}`}
+      onClick={() => setLocale(nextLocale)}
+    >
+      <Flag />
+    </button>
   );
 }
