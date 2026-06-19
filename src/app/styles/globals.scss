@@ -1,0 +1,15 @@
+@use "tokens" as *;
+@use "reset";
+
+body {
+  background: $color-bg;
+  color: $color-text-primary;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: $font-size-md;
+  line-height: $line-height-base;
+}
+
+code,
+pre {
+  font-family: var(--font-geist-mono), monospace;
+}
