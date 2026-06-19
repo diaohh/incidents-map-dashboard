@@ -3,18 +3,19 @@
 .nav {
   width: $sidebar-width-collapsed;
   background: $color-surface;
-  border-radius: 0 $radius-lg $radius-lg 0;
+  border-radius: 0 $radius-xl $radius-xl 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   margin: $space-4 0;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: $space-2;
   padding: $space-4 $space-2;
   transition: width 0.2s ease;
 
   &.expanded {
     width: $sidebar-width-expanded;
+    align-items: stretch;
   }
 }
 
@@ -47,9 +48,10 @@
 .link {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: $space-3;
-  padding: $space-2;
-  border-radius: $radius-md;
+  padding: $space-3;
+  border-radius: $radius-lg;
   color: $color-icon-default;
   white-space: nowrap;
   overflow: hidden;
@@ -57,6 +59,11 @@
   &:hover {
     background: $color-bg;
   }
+}
+
+.expanded .link {
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .active {
