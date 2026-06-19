@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { Button, Field, Modal, Select } from "@/shared/ui";
 import { useTranslation } from "@/shared/i18n";
-import type { TranslationKey } from "@/shared/i18n";
 import {
   incidentCategories,
   seedIncidents,
   useIncidentStore,
+  PRIORITY_LABEL_KEY,
   type Coordinates,
   type Priority,
 } from "@/entities/incident";
@@ -16,12 +16,6 @@ import { validateIncidentForm, type IncidentFormValues } from "../model/validate
 import styles from "./CreateIncidentModal.module.scss";
 
 const PRIORITIES: Priority[] = ["high", "medium", "low"];
-
-const PRIORITY_LABEL_KEY: Record<Priority, TranslationKey> = {
-  high: "priority.high",
-  medium: "priority.medium",
-  low: "priority.low",
-};
 
 const INITIAL_VALUES: IncidentFormValues = {
   title: "",
