@@ -1,1 +1,1 @@
-export { mapboxToken } from "./env";
+export { mapboxToken, firebaseConfig, isFirebaseConfigured } from "./env";

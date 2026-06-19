@@ -29,28 +29,3 @@
   gap: $space-4;
 }
 
-.profile {
-  display: flex;
-  align-items: center;
-  gap: $space-2;
-}
-
-.avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: $color-accent;
-  color: $color-accent-contrast;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-.profileLabel {
-  font-size: $font-size-sm;
-}

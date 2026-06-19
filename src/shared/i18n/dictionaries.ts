@@ -14,6 +14,10 @@ export type TranslationKey =
   | "mapView.tokenMissing.body"
   | "mapView.loadError.title"
   | "mapView.loadError.body"
+  | "auth.menuLabel"
+  | "auth.signInWithGoogle"
+  | "auth.signOut"
+  | "auth.notConfigured"
   | "incidentCard.close"
   | "incidentCard.owner"
   | "incidentCard.dueDate"
@@ -80,6 +84,10 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
       "Configura NEXT_PUBLIC_MAPBOX_TOKEN en .env.local para ver el mapa.",
     "mapView.loadError.title": "No se pudo cargar el mapa",
     "mapView.loadError.body": "Revisa que el token de Mapbox sea válido e intenta de nuevo.",
+    "auth.menuLabel": "Menú de cuenta",
+    "auth.signInWithGoogle": "Iniciar sesión con Google",
+    "auth.signOut": "Cerrar sesión",
+    "auth.notConfigured": "Falta configurar Firebase para iniciar sesión",
     "incidentCard.close": "Cerrar",
     "incidentCard.owner": "Responsable",
     "incidentCard.dueDate": "Vence",
@@ -144,6 +152,10 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "mapView.tokenMissing.body": "Set NEXT_PUBLIC_MAPBOX_TOKEN in .env.local to see the map.",
     "mapView.loadError.title": "Couldn't load the map",
     "mapView.loadError.body": "Check that your Mapbox token is valid and try again.",
+    "auth.menuLabel": "Account menu",
+    "auth.signInWithGoogle": "Sign in with Google",
+    "auth.signOut": "Sign out",
+    "auth.notConfigured": "Firebase isn't configured for sign-in",
     "incidentCard.close": "Close",
     "incidentCard.owner": "Owner",
     "incidentCard.dueDate": "Due",
