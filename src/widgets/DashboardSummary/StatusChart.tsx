@@ -18,11 +18,16 @@ export function StatusChart({ incidents }: StatusChartProps) {
     value: byStatus[status]?.length ?? 0,
     color: STATUS_COLOR[status],
   }));
+  const isEmpty = data.every((item) => item.value === 0);
 
   return (
     <section className={styles.section}>
       <h3 className={styles.title}>{t("dashboard.chart.byStatus")}</h3>
-      <DonutChart data={data} withLabels withTooltip size={160} />
+      {isEmpty ? (
+        <p className={styles.empty}>{t("dashboard.chart.empty")}</p>
+      ) : (
+        <DonutChart data={data} withLabels withTooltip size={160} />
+      )}
     </section>
   );
 }

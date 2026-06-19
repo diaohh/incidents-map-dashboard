@@ -12,6 +12,8 @@ export type TranslationKey =
   | "sidebar.collapse"
   | "mapView.tokenMissing.title"
   | "mapView.tokenMissing.body"
+  | "mapView.loadError.title"
+  | "mapView.loadError.body"
   | "incidentCard.close"
   | "incidentCard.owner"
   | "incidentCard.dueDate"
@@ -53,6 +55,7 @@ export type TranslationKey =
   | "dashboard.chart.trend"
   | "dashboard.chart.created"
   | "dashboard.chart.closed"
+  | "dashboard.chart.empty"
   | "dashboard.table.title"
   | "dashboard.table.column.title"
   | "dashboard.table.column.category"
@@ -75,6 +78,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "mapView.tokenMissing.title": "Falta el token de Mapbox",
     "mapView.tokenMissing.body":
       "Configura NEXT_PUBLIC_MAPBOX_TOKEN en .env.local para ver el mapa.",
+    "mapView.loadError.title": "No se pudo cargar el mapa",
+    "mapView.loadError.body": "Revisa que el token de Mapbox sea válido e intenta de nuevo.",
     "incidentCard.close": "Cerrar",
     "incidentCard.owner": "Responsable",
     "incidentCard.dueDate": "Vence",
@@ -116,6 +121,7 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "dashboard.chart.trend": "Tendencia mensual",
     "dashboard.chart.created": "Creadas",
     "dashboard.chart.closed": "Cerradas",
+    "dashboard.chart.empty": "No hay datos para mostrar con estos filtros.",
     "dashboard.table.title": "Incidencias",
     "dashboard.table.column.title": "Título",
     "dashboard.table.column.category": "Categoría",
@@ -136,6 +142,8 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "sidebar.collapse": "Collapse navigation",
     "mapView.tokenMissing.title": "Mapbox token missing",
     "mapView.tokenMissing.body": "Set NEXT_PUBLIC_MAPBOX_TOKEN in .env.local to see the map.",
+    "mapView.loadError.title": "Couldn't load the map",
+    "mapView.loadError.body": "Check that your Mapbox token is valid and try again.",
     "incidentCard.close": "Close",
     "incidentCard.owner": "Owner",
     "incidentCard.dueDate": "Due",
@@ -177,6 +185,7 @@ export const dictionaries: Record<Locale, Record<TranslationKey, string>> = {
     "dashboard.chart.trend": "Monthly trend",
     "dashboard.chart.created": "Created",
     "dashboard.chart.closed": "Closed",
+    "dashboard.chart.empty": "No data to show with these filters.",
     "dashboard.table.title": "Incidents",
     "dashboard.table.column.title": "Title",
     "dashboard.table.column.category": "Category",

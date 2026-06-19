@@ -17,17 +17,22 @@ export function PriorityChart({ incidents }: PriorityChartProps) {
     name: t(PRIORITY_LABEL_KEY[priority]),
     value: byPriority[priority]?.length ?? 0,
   }));
+  const isEmpty = data.every((item) => item.value === 0);
 
   return (
     <section className={styles.section}>
       <h3 className={styles.title}>{t("dashboard.chart.byPriority")}</h3>
-      <BarChart
-        h={220}
-        data={data}
-        dataKey="name"
-        series={[{ name: "value", color: "orange.6" }]}
-        withLegend={false}
-      />
+      {isEmpty ? (
+        <p className={styles.empty}>{t("dashboard.chart.empty")}</p>
+      ) : (
+        <BarChart
+          h={220}
+          data={data}
+          dataKey="name"
+          series={[{ name: "value", color: "orange.6" }]}
+          withLegend={false}
+        />
+      )}
     </section>
   );
 }

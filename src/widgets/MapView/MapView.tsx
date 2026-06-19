@@ -51,7 +51,7 @@ function MapCanvas({ token, incidents, selectedIncidentId, onSelect }: MapCanvas
   const filters = useFilterStore((state) => state);
   const filteredIncidents = applyFilters(incidents, filters);
 
-  const { containerRef, map } = useMapbox({ token, incidents: filteredIncidents });
+  const { containerRef, map, error } = useMapbox({ token, incidents: filteredIncidents });
   useIncidentMarkers({ map, incidents: filteredIncidents, onSelect });
 
   const { isPicking, pendingCoordinates, isModalOpen, startPicking, handleMapClick, closeModal } =
@@ -59,10 +59,17 @@ function MapCanvas({ token, incidents, selectedIncidentId, onSelect }: MapCanvas
   useMapClickToPick({ map, enabled: isPicking, onPick: handleMapClick });
 
   const selectedIncident = incidents.find((incident) => incident.id === selectedIncidentId);
+  const { t } = useTranslation();
 
   return (
     <div className={styles.root}>
       <div ref={containerRef} className={styles.map} />
+      {error && (
+        <div className={styles.tokenMissing}>
+          <p className={styles.tokenMissingTitle}>{t("mapView.loadError.title")}</p>
+          <p>{t("mapView.loadError.body")}</p>
+        </div>
+      )}
       <div className={styles.filterBar}>
         <FilterBar />
       </div>

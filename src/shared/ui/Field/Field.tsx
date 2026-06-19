@@ -17,11 +17,13 @@ export function Field(props: FieldInputProps | FieldTextareaProps) {
   const generatedId = useId();
   const fieldId = id ?? generatedId;
   const errorId = error ? `${fieldId}-error` : undefined;
+  const isRequired = Boolean(rest.required);
 
   return (
     <div className={styles.field}>
       <label className={styles.label} htmlFor={fieldId}>
         {label}
+        {isRequired && <span aria-hidden="true"> *</span>}
       </label>
       {as === "textarea" ? (
         <textarea
@@ -29,6 +31,7 @@ export function Field(props: FieldInputProps | FieldTextareaProps) {
           className={styles.textarea}
           aria-describedby={errorId}
           aria-invalid={Boolean(error)}
+          aria-required={isRequired}
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
@@ -37,6 +40,7 @@ export function Field(props: FieldInputProps | FieldTextareaProps) {
           className={styles.input}
           aria-describedby={errorId}
           aria-invalid={Boolean(error)}
+          aria-required={isRequired}
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}

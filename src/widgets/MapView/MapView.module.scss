@@ -41,6 +41,13 @@
   color: $color-text-secondary;
 }
 
+.root .tokenMissing {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: $color-surface;
+}
+
 .tokenMissingTitle {
   font-size: $font-size-lg;
   font-weight: 600;

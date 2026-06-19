@@ -22,16 +22,20 @@ export function CategoryChart({ incidents }: CategoryChartProps) {
   return (
     <section className={styles.section}>
       <h3 className={styles.title}>{t("dashboard.chart.byCategory")}</h3>
-      <BarChart
-        h={Math.max(280, data.length * 36)}
-        data={data}
-        dataKey="name"
-        series={[{ name: "value", color: "indigo.6" }]}
-        orientation="vertical"
-        withLegend={false}
-        yAxisProps={{ width: 150, tick: { fontSize: 12 } }}
-        gridAxis="x"
-      />
+      {data.length === 0 ? (
+        <p className={styles.empty}>{t("dashboard.chart.empty")}</p>
+      ) : (
+        <BarChart
+          h={Math.max(280, data.length * 36)}
+          data={data}
+          dataKey="name"
+          series={[{ name: "value", color: "indigo.6" }]}
+          orientation="vertical"
+          withLegend={false}
+          yAxisProps={{ width: 150, tick: { fontSize: 12 } }}
+          gridAxis="x"
+        />
+      )}
     </section>
   );
 }

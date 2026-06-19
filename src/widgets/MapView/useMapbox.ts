@@ -11,16 +11,20 @@ interface UseMapboxOptions {
 export function useMapbox({ token, incidents }: UseMapboxOptions) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     mapboxgl.accessToken = token;
+    setError(false);
 
     const instance = new mapboxgl.Map({
       container: containerRef.current,
       style: "mapbox://styles/mapbox/light-v11",
     });
+
+    instance.on("error", () => setError(true));
 
     if (incidents.length > 0) {
       instance.fitBounds(getIncidentBounds(incidents), { padding: 48, maxZoom: 16, duration: 0 });
@@ -35,5 +39,5 @@ export function useMapbox({ token, incidents }: UseMapboxOptions) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  return { containerRef, map };
+  return { containerRef, map, error };
 }
