@@ -1,20 +1,35 @@
 @use "@/app/styles/tokens" as *;
+@use "@/app/styles/mixins" as *;
 
 .bar {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: stretch;
   gap: $space-4;
   background: $color-surface;
   border-radius: $radius-md;
   padding: $space-4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  @include respond-to(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
 }
 
 .field {
-  min-width: 160px;
+  min-width: 0;
+
+  @include respond-to(md) {
+    min-width: 160px;
+  }
 }
 
 .clear {
-  align-self: flex-end;
+  align-self: stretch;
+
+  @include respond-to(md) {
+    align-self: flex-end;
+  }
 }

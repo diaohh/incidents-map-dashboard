@@ -14,17 +14,26 @@
 
 .cardOverlay {
   position: absolute;
-  top: $space-4;
+  top: calc(48px + #{$space-4} + #{$space-2});
   right: $space-4;
   z-index: 1;
+
+  @include respond-to(md) {
+    top: $space-4;
+  }
 }
 
 .filterBar {
   position: absolute;
   top: $space-4;
-  left: 50%;
-  transform: translateX(-50%);
+  right: $space-4;
   z-index: 1;
+
+  @include respond-to(md) {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
 }
 
 .filterTrigger {
@@ -47,9 +56,9 @@
   display: none;
   position: absolute;
   top: calc(100% + #{$space-2});
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
+  right: 0;
+  z-index: 1;
+  width: min(260px, calc(100vw - #{$space-8}));
 
   &.filterPanelOpen {
     display: block;
@@ -58,7 +67,7 @@
   @include respond-to(md) {
     display: block;
     position: static;
-    transform: none;
+    right: auto;
     width: auto;
   }
 }
