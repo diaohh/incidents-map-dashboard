@@ -1,27 +1,9 @@
 import { Badge, IconButton } from "@/shared/ui";
 import { formatDate } from "@/shared/lib/formatDate";
 import { useTranslation } from "@/shared/i18n";
-import type { TranslationKey } from "@/shared/i18n";
-import type { Incident, Priority, Status } from "../model/types";
+import { PRIORITY_COLOR, PRIORITY_LABEL_KEY, STATUS_LABEL_KEY } from "../model/labels";
+import type { Incident } from "../model/types";
 import styles from "./IncidentCard.module.scss";
-
-const PRIORITY_COLOR: Record<Priority, string> = {
-  high: "#d64545",
-  medium: "#e0a526",
-  low: "#2f9e63",
-};
-
-const STATUS_LABEL_KEY: Record<Status, TranslationKey> = {
-  open: "status.open",
-  on_pause: "status.on_pause",
-  closed: "status.closed",
-};
-
-const PRIORITY_LABEL_KEY: Record<Priority, TranslationKey> = {
-  high: "priority.high",
-  medium: "priority.medium",
-  low: "priority.low",
-};
 
 interface IncidentCardProps {
   incident: Incident;
