@@ -1,0 +1,42 @@
+@use "@/app/styles/tokens" as *;
+
+.wrapper {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+}
+
+.table th,
+.table td {
+  padding: $space-3 $space-4;
+  text-align: left;
+  border-bottom: 1px solid $color-border;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.empty {
+  padding: $space-6;
+  text-align: center;
+  color: $color-text-secondary;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

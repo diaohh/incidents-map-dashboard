@@ -1,0 +1,25 @@
+@use "@/app/styles/tokens" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: $space-4;
+}
+
+.card {
+  background: $color-surface;
+  border-radius: $radius-md;
+  padding: $space-4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.value {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text-primary;
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
