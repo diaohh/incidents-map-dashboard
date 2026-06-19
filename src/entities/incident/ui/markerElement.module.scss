@@ -1,0 +1,30 @@
+@use "@/app/styles/tokens" as *;
+
+.marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid $color-surface;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.high {
+  background: $color-danger;
+}
+
+.medium {
+  background: $color-warning;
+}
+
+.low {
+  background: $color-success;
+}
+
+.closed {
+  opacity: 0.5;
+}
+
+.onPause {
+  border-style: dashed;
+}
