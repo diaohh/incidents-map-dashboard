@@ -77,6 +77,13 @@ una única fuente de verdad del dominio; el dashboard y el mapa consumen el mism
 storage, timers). Derivaciones en render/`useMemo`, eventos en handlers, estado global en Zustand.
 **Por qué:** menos bugs de sincronización, render más predecible, código más simple (KISS).
 
+## Estado del proyecto
+
+Fases 0-6 completas (ver `.claude/CHECKLIST.md`): setup, layout base, modelo de dominio, vista
+de mapa con creación de incidencias, dashboard con KPIs/gráficos/tabla filtrable, y una pasada
+de pulido (estados vacíos en los gráficos, accesibilidad del modal y formularios, manejo de
+error al cargar el mapa). Pendiente como extras opcionales: responsive avanzado y autenticación.
+
 ## Scripts
 
 ```bash
