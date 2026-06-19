@@ -1,8 +1,14 @@
+"use client";
+
+import { useTranslation } from "@/shared/i18n";
+
 export default function DashboardPage() {
+  const { t } = useTranslation();
+
   return (
     <section>
-      <h1>Dashboard</h1>
-      <p>El resumen de incidencias (KPIs, distribución, tendencias) llega en la Fase 5.</p>
+      <h1>{t("dashboardPage.title")}</h1>
+      <p>{t("dashboardPage.body")}</p>
     </section>
   );
 }

@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "@/shared/i18n";
+import type { TranslationKey } from "@/shared/i18n";
 import styles from "./Sidebar.module.scss";
 
-const NAV_ITEMS = [
+const NAV_ITEMS: { href: string; labelKey: TranslationKey; icon: React.ReactNode }[] = [
   {
     href: "/",
-    label: "Mapa",
+    labelKey: "nav.mapa",
     icon: (
       <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
@@ -21,7 +23,7 @@ const NAV_ITEMS = [
   },
   {
     href: "/dashboard",
-    label: "Dashboard",
+    labelKey: "nav.dashboard",
     icon: (
       <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="3" y="3" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
@@ -35,6 +37,7 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   return (
     <nav className={styles.nav} aria-label="Navegación principal">
@@ -50,7 +53,7 @@ export function Sidebar() {
             aria-current={isActive ? "page" : undefined}
           >
             {item.icon}
-            <span className={styles.label}>{item.label}</span>
+            <span className={styles.label}>{t(item.labelKey)}</span>
           </Link>
         );
       })}

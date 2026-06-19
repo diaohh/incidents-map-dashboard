@@ -1,8 +1,14 @@
+"use client";
+
+import { useTranslation } from "@/shared/i18n";
+
 export default function MapaPage() {
+  const { t } = useTranslation();
+
   return (
     <section>
-      <h1>Vista de mapa</h1>
-      <p>El mapa interactivo con las incidencias llega en la Fase 3.</p>
+      <h1>{t("mapPage.title")}</h1>
+      <p>{t("mapPage.body")}</p>
     </section>
   );
 }

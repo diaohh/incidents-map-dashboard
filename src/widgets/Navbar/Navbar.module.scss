@@ -17,24 +17,19 @@
   width: 100%;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: $space-3;
-}
-
 .logo {
   font-size: $font-size-lg;
   font-weight: 700;
   color: $color-accent;
 }
 
-.project {
-  font-size: $font-size-sm;
-  color: $color-text-on-dark;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
 }
 
-.user {
+.profile {
   display: flex;
   align-items: center;
   gap: $space-2;
@@ -49,10 +44,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: $font-size-xs;
-  font-weight: 700;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
-.userName {
+.profileLabel {
   font-size: $font-size-sm;
 }

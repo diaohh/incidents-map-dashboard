@@ -1,21 +1,31 @@
+"use client";
+
+import { useTranslation } from "@/shared/i18n";
+import { LanguageSwitcher } from "@/shared/ui";
 import styles from "./Navbar.module.scss";
 
-const CURRENT_PROJECT_NAME = "Proyecto Onboarding";
-const CURRENT_USER_NAME = "Julián";
-
 export function Navbar() {
+  const { t } = useTranslation();
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Barra superior">
-        <div className={styles.brand}>
-          <span className={styles.logo}>Spybee</span>
-          <span className={styles.project}>{CURRENT_PROJECT_NAME}</span>
-        </div>
-        <div className={styles.user}>
-          <span className={styles.avatar} aria-hidden="true">
-            {CURRENT_USER_NAME.charAt(0)}
-          </span>
-          <span className={styles.userName}>{CURRENT_USER_NAME}</span>
+        <span className={styles.logo}>{t("navbar.brand")}</span>
+        <div className={styles.actions}>
+          <LanguageSwitcher />
+          <div className={styles.profile}>
+            <span className={styles.avatar} aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+                <path
+                  d="M5 20c0-3.5 3.13-6 7-6s7 2.5 7 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </span>
+            <span className={styles.profileLabel}>{t("navbar.login")}</span>
+          </div>
         </div>
       </nav>
     </header>
